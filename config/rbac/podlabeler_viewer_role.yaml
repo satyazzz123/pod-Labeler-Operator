@@ -1,0 +1,23 @@
+# permissions for end users to view podlabelers.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  labels:
+    app.kubernetes.io/name: pod-labeler-operator
+    app.kubernetes.io/managed-by: kustomize
+  name: podlabeler-viewer-role
+rules:
+- apiGroups:
+  - api.satyazzz123.online
+  resources:
+  - podlabelers
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - api.satyazzz123.online
+  resources:
+  - podlabelers/status
+  verbs:
+  - get
