@@ -48,11 +48,11 @@ spec:
     team: backend
 
 ```
-5.Deploy a Pod with label=nginx(label Operator won't attach the labels mentioned in your CR)
+5.Deploy a Pod with label app=nginx(label Operator won't attach the labels mentioned in your CR)
 ```
 kubectl create deployment nginx --image nginx
 ```
-6.Deploy a Pod with label=my-app(label Operator will attach the labels mentioned in your CR)
+6.Deploy a Pod with label app=my-app(label Operator will attach the labels mentioned in your CR)
 ```
 kubectl create deployment my-app --image nginx
 ```
