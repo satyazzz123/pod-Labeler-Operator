@@ -2,7 +2,10 @@
 
 The Pod Labeler Operator is a custom-built Kubernetes Operator, developed using the Operator SDK, to automate the process of labeling pods dynamically based on user-defined criteria. By leveraging Custom Resources (CRs) and Custom Resource Definitions (CRDs), this operator provides a declarative way to assign labels to pods.
 
-Once deployed, the Pod Labeler Operator continuously watches the state of your cluster. It monitors pods in real-time, evaluating them against the selectors specified in the CR. Whenever a pod that matches the defined selector is detected, the operator automatically applies the appropriate labels, ensuring your pod labeling remains accurate and up-to-date without manual intervention.
+## Architecture
+- Once deployed, the Pod Labeler Operator continuously watches the state of your cluster. It monitors pods in real-time, evaluating them against the selectors specified in the CR. 
+- Whenever a pod that matches the defined selector is detected, the operator automatically applies the appropriate labels, ensuring your pod labeling remains accurate and up-to-date without manual intervention.
+- Reconciler Loop is called every 15 secs so if any drift is caught that is not in accordance with the CR then the reconcillation logic will reconcile it 
 
 ## Prerequisites
 - Kubernetes 1.16+
@@ -45,7 +48,7 @@ spec:
     team: backend
 
 ```
-5.Deploy a Pod with label=nginx(label Operator wont attach the labels mentioned in your CR)
+5.Deploy a Pod with label=nginx(label Operator won't attach the labels mentioned in your CR)
 ```
 kubectl create deployment nginx --image nginx
 ```
