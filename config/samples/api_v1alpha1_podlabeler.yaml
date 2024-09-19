@@ -2,7 +2,7 @@ apiVersion: api.satyazzz123.online/v1alpha1
 kind: PodLabeler
 metadata:
   name: example-podlabeler
-  namespace: new
+  namespace: default
 spec:
   selector:
     app: my-app
